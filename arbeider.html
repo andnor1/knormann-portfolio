@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tidligere prosjekter — Karoline E. Normann</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#f4f1ec;--ink:#1a1a1a;--muted:#8a8378;--line:#d8d1c5;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Inter',sans-serif;font-weight:400;
+    background:var(--bg);color:var(--ink);line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  header{
+    display:grid;grid-template-columns:1fr auto;align-items:end;
+    padding:2.5rem 3rem 1.5rem;border-bottom:1px solid var(--ink);
+  }
+  .name{font-size:1.1rem;font-weight:600;text-transform:uppercase;letter-spacing:.18em}
+  .name a{color:inherit;text-decoration:none}
+  nav ul{display:flex;gap:2.5rem;list-style:none}
+  nav a{color:var(--ink);text-decoration:none;font-size:.8rem;font-weight:500;text-transform:uppercase;letter-spacing:.22em;padding-bottom:2px;transition:opacity .25s}
+  nav a:hover{opacity:.55}
+  nav a.active{border-bottom:1.5px solid var(--ink)}
+
+  main{padding:3rem 3rem 4rem;max-width:1400px;margin:0 auto}
+
+  .page-head{margin-bottom:2.5rem}
+  .eyebrow{font-size:.72rem;text-transform:uppercase;letter-spacing:.28em;color:var(--muted);margin-bottom:1rem;font-weight:500}
+  .page-head h1{
+    font-size:clamp(2rem,4vw,3.25rem);
+    font-weight:600;line-height:1.05;letter-spacing:-.015em;
+    text-transform:uppercase;margin-bottom:.5rem;
+  }
+  .page-head p{max-width:55ch;color:#3a3a3a;font-size:.95rem}
+
+  /* FILTER */
+  .filter{
+    display:flex;gap:2rem;padding:1.25rem 0;
+    border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);
+    margin-bottom:3rem;flex-wrap:wrap;
+  }
+  .filter a{
+    font-size:.78rem;text-transform:uppercase;letter-spacing:.28em;
+    color:var(--muted);text-decoration:none;font-weight:500;
+    transition:color .3s;
+  }
+  .filter a:hover,.filter a.active{color:var(--ink)}
+
+  /* YEAR */
+  .year{margin-bottom:5rem}
+  .year-head{
+    display:grid;grid-template-columns:auto 1fr;align-items:end;gap:1.5rem;
+    padding-bottom:1rem;border-bottom:1px solid var(--line);margin-bottom:2rem;
+  }
+  .year-num{
+    font-size:clamp(2.5rem,5vw,4rem);font-weight:700;
+    line-height:1;letter-spacing:-.02em;
+  }
+  .year-label{
+    font-size:.72rem;text-transform:uppercase;letter-spacing:.28em;
+    color:var(--muted);padding-bottom:.6rem;font-weight:500;
+  }
+
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+  .grid.featured{grid-template-columns:2fr 1fr 1fr;grid-template-rows:auto auto}
+  .grid.featured .item:first-child{grid-row:span 2}
+
+  .item{
+    text-decoration:none;color:var(--ink);
+    display:flex;flex-direction:column;
+    transition:transform .5s cubic-bezier(.2,.8,.2,1);
+  }
+  .item:hover{transform:translateY(-4px)}
+  .item:hover .item-img{filter:brightness(.96)}
+  .item-img{
+    aspect-ratio:4/5;
+    background:linear-gradient(135deg,#e8e2d6 0%,#c9bfa9 100%);
+    display:flex;align-items:center;justify-content:center;
+    color:var(--muted);font-size:.7rem;letter-spacing:.3em;
+    text-transform:uppercase;font-weight:500;
+    margin-bottom:.85rem;overflow:hidden;transition:filter .4s;
+  }
+  .grid.featured .item:first-child .item-img{aspect-ratio:auto;height:100%;min-height:480px}
+  .item-img img{width:100%;height:100%;object-fit:cover;display:block}
+  .item-meta{display:flex;justify-content:space-between;align-items:baseline;gap:1rem}
+  .item-title{font-size:.85rem;font-weight:600;text-transform:uppercase;letter-spacing:.12em}
+  .item-cat{font-size:.68rem;text-transform:uppercase;letter-spacing:.25em;color:var(--muted);font-weight:500;white-space:nowrap}
+
+  .badge{
+    display:inline-block;font-size:.6rem;letter-spacing:.32em;text-transform:uppercase;
+    background:var(--ink);color:var(--bg);padding:.4rem .8rem;font-weight:500;
+  }
+
+  footer{padding:2rem 3rem;border-top:1px solid var(--line);display:flex;justify-content:space-between;font-size:.72rem;text-transform:uppercase;letter-spacing:.22em;color:var(--muted);font-weight:500}
+  footer a{color:inherit;text-decoration:none}
+
+  .fade{opacity:0;transform:translateY(12px);animation:fade .8s forwards}
+  .fade.d1{animation-delay:.05s}.fade.d2{animation-delay:.15s}.fade.d3{animation-delay:.25s}
+  @keyframes fade{to{opacity:1;transform:translateY(0)}}
+
+  @media(max-width:900px){
+    header{grid-template-columns:1fr;gap:1.25rem;padding:1.75rem 1.5rem 1.25rem}
+    .name{font-size:.95rem}
+    nav ul{gap:1.25rem;flex-wrap:wrap}
+    nav a{font-size:.7rem;letter-spacing:.18em}
+    main{padding:2rem 1.5rem 3rem}
+    .grid,.grid.featured{grid-template-columns:1fr;gap:1.5rem}
+    .grid.featured .item:first-child{grid-row:auto}
+    .grid.featured .item:first-child .item-img{min-height:auto;aspect-ratio:4/5}
+    .year-head{grid-template-columns:1fr}
+    footer{padding:1.5rem;flex-direction:column;gap:.5rem;text-align:center}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="name fade d1"><a href="index.html">Karoline E. Normann</a></div>
+  <nav>
+    <ul>
+      <li class="fade d2"><a href="index.html">Forside</a></li>
+      <li class="fade d2"><a href="om.html">Om meg</a></li>
+      <li class="fade d2"><a href="index.html#kontakt">Kontakt</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+
+  <div class="page-head fade d1">
+    <div class="eyebrow">Arkiv</div>
+    <h1>Tidligere prosjekter</h1>
+    <p>En kronologisk oversikt over prosjekter, kolleksjoner og prosess.</p>
+  </div>
+
+  <div class="filter fade d2">
+    <a href="#2026" class="active">Alle</a>
+    <a href="#2026">2026 — Avgang</a>
+    <a href="#2025">2025</a>
+    <a href="#2024">2024</a>
+    <a href="#2023">2023</a>
+  </div>
+
+  <div class="year" id="2026">
+    <div class="year-head">
+      <div class="year-num">2026</div>
+      <div class="year-label">Avgangsår</div>
+    </div>
+    <div class="grid featured">
+      <a href="avgangsoppgave.html" class="item">
+        <div class="item-img">
+          <div style="text-align:center">
+            <div class="badge">Avgangskolleksjon</div>
+            <div style="margin-top:1rem">[Kolleksjonens navn]</div>
+          </div>
+        </div>
+        <div class="item-meta">
+          <div>
+            <div class="item-title">[Kolleksjonens navn]</div>
+          </div>
+          <div class="item-cat">Avgang · 2026</div>
+        </div>
+      </a>
+      <a href="avgangsoppgave.html#lookbok" class="item">
+        <div class="item-img">Bilde</div>
+        <div class="item-meta">
+          <div class="item-title">Lookbook</div>
+          <div class="item-cat">PDF</div>
+        </div>
+      </a>
+      <a href="avgangsoppgave.html#brandbook" class="item">
+        <div class="item-img">Bilde</div>
+        <div class="item-meta">
+          <div class="item-title">Brandbook</div>
+          <div class="item-cat">PDF</div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <div class="year" id="2025">
+    <div class="year-head">
+      <div class="year-num">2025</div>
+      <div class="year-label">Andre studieår</div>
+    </div>
+    <div class="grid">
+      <a href="prosjekt-2025-a.html" class="item">
+        <div class="item-img">Bilde</div>
+        <div class="item-meta"><div class="item-title">[Prosjekttittel]</div><div class="item-cat">Kolleksjon</div></div>
+      </a>
+      <a href="prosjekt-2025-b.html" class="item">
+        <div class="item-img">Bilde</div>
+        <div class="item-meta"><div class="item-title">[Prosjekttittel]</div><div class="item-cat">Konsept</div></div>
+      </a>
+      <a href="prosjekt-2025-c.html" class="item">
+        <div class="item-img">Bilde</div>
+        <div class="item-meta"><div class="item-title">[Prosjekttittel]</div><div class="item-cat">Skisser</div></div>
+      </a>
+    </div>
+  </div>
+
+  <div class="year" id="2024">
+    <div class="year-head">
+      <div class="year-num">2024</div>
+      <div class="year-label">Første studieår</div>
+    </div>
+    <div class="grid">
+      <a href="prosjekt-2024-a.html" class="item">
+        <div class="item-img">Bilde</div>
+        <div class="item-meta"><div class="item-title">[Prosjekttittel]</div><div class="item-cat">Studie</div></div>
+      </a>
+      <a href="prosjekt-2024-b.html" class="item">
+        <div class="item-img">Bilde</div>
+        <div class="item-meta"><div class="item-title">[Prosjekttittel]</div><div class="item-cat">Studie</div></div>
+      </a>
+      <a href="prosjekt-2024-c.html" class="item">
+        <div class="item-img">Bilde</div>
+        <div class="item-meta"><div class="item-title">[Prosjekttittel]</div><div class="item-cat">Mønster</div></div>
+      </a>
+    </div>
+  </div>
+
+  <div class="year" id="2023">
+    <div class="year-head">
+      <div class="year-num">2023</div>
+      <div class="year-label">Tidlige arbeider</div>
+    </div>
+    <div class="grid">
+      <a href="prosjekt-2023-a.html" class="item">
+        <div class="item-img">Bilde</div>
+        <div class="item-meta"><div class="item-title">[Prosjekttittel]</div><div class="item-cat">Tidlig arbeid</div></div>
+      </a>
+      <a href="prosjekt-2023-b.html" class="item">
+        <div class="item-img">Bilde</div>
+        <div class="item-meta"><div class="item-title">[Prosjekttittel]</div><div class="item-cat">Skisser</div></div>
+      </a>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <div>© 2026 Karoline E. Normann</div>
+  <div>
+    <a href="mailto:[e-post]">E-post</a> &nbsp;·&nbsp;
+    <a href="#" target="_blank">Instagram</a>
+  </div>
+</footer>
+
+</body>
+</html>

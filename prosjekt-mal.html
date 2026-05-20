@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<!--
+═══════════════════════════════════════════════════════════════
+  PROSJEKT-MAL
+  ───────────────────────────────────────────────────────────
+  Kopier denne filen og gi den et nytt navn, f.eks.:
+    prosjekt-2025-konsept.html
+    prosjekt-2024-monstre.html
+
+  Bytt ut alt i [klammer] med innhold for prosjektet.
+  Legg til eller fjern <article class="doc">-blokker
+  etter hvor mange PDF-er prosjektet har.
+  Lenk så til filen fra arbeider.html
+═══════════════════════════════════════════════════════════════
+-->
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>[Prosjekttittel] — Karoline E. Normann</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#f4f1ec;--ink:#1a1a1a;--muted:#8a8378;--line:#d8d1c5;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Inter',sans-serif;font-weight:400;
+    background:var(--bg);color:var(--ink);line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  header{
+    display:grid;grid-template-columns:1fr auto;align-items:end;
+    padding:2.5rem 3rem 1.5rem;border-bottom:1px solid var(--ink);
+  }
+  .name{font-size:1.1rem;font-weight:600;text-transform:uppercase;letter-spacing:.18em}
+  .name a{color:inherit;text-decoration:none}
+  nav ul{display:flex;gap:2.5rem;list-style:none}
+  nav a{color:var(--ink);text-decoration:none;font-size:.8rem;font-weight:500;text-transform:uppercase;letter-spacing:.22em;padding-bottom:2px;transition:opacity .25s}
+  nav a:hover{opacity:.55}
+  nav a.active{border-bottom:1.5px solid var(--ink)}
+
+  .page-head{padding:4rem 3rem 2rem;max-width:1400px;margin:0 auto;text-align:center}
+  .crumbs{font-size:.72rem;text-transform:uppercase;letter-spacing:.28em;color:var(--muted);margin-bottom:1.5rem;font-weight:500}
+  .crumbs a{color:var(--muted);text-decoration:none}
+  .crumbs a:hover{color:var(--ink)}
+  .page-head h1{
+    font-size:clamp(2.5rem,5vw,4rem);font-weight:600;line-height:1;
+    letter-spacing:-.015em;text-transform:uppercase;margin-bottom:1.25rem;
+  }
+  .page-head .year{
+    font-size:.78rem;text-transform:uppercase;letter-spacing:.3em;
+    color:var(--muted);font-weight:500;margin-bottom:1.5rem;
+  }
+  .page-head p{max-width:60ch;margin:0 auto;color:#3a3a3a;font-size:1rem}
+
+  .toc{
+    max-width:1400px;margin:2.5rem auto 0;padding:1.25rem 3rem;
+    display:flex;flex-wrap:wrap;justify-content:center;gap:2rem;
+    border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);
+    counter-reset:toc;
+  }
+  .toc a{
+    font-size:.74rem;text-transform:uppercase;letter-spacing:.28em;
+    color:var(--muted);text-decoration:none;font-weight:500;transition:color .3s;
+    counter-increment:toc;
+  }
+  .toc a::before{
+    content:counter(toc, decimal-leading-zero) " ";
+  }
+  .toc a:hover{color:var(--ink)}
+
+  .docs{max-width:1400px;margin:0 auto;padding:3rem;counter-reset:doc}
+
+  .doc{margin-bottom:5rem;counter-increment:doc}
+  .doc-head{
+    display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:2rem;
+    margin-bottom:1.5rem;padding-bottom:1.25rem;border-bottom:1px solid var(--line);
+  }
+  .doc-num{
+    font-size:1.6rem;font-weight:700;color:var(--muted);letter-spacing:-.01em;
+  }
+  .doc-num::before{
+    content:counter(doc, decimal-leading-zero);
+  }
+  .doc-title h2{
+    font-size:clamp(1.5rem,3vw,2.25rem);font-weight:600;line-height:1;
+    text-transform:uppercase;letter-spacing:-.01em;margin-bottom:.35rem;
+  }
+  .doc-title .sub{font-size:.72rem;color:var(--muted);letter-spacing:.22em;text-transform:uppercase;font-weight:500}
+  .download{
+    font-size:.74rem;text-transform:uppercase;letter-spacing:.28em;font-weight:500;
+    color:var(--ink);text-decoration:none;
+    border:1.5px solid var(--ink);padding:.85rem 1.4rem;
+    transition:all .3s;white-space:nowrap;
+  }
+  .download:hover{background:var(--ink);color:var(--bg)}
+
+  .doc-desc{max-width:65ch;color:#3a3a3a;margin-bottom:1.5rem;font-size:.92rem}
+
+  .pdf-frame{
+    width:100%;height:80vh;min-height:600px;
+    border:1px solid var(--line);background:#fff;
+    box-shadow:0 30px 60px -20px rgba(0,0,0,.1);
+  }
+
+  /* BACK TO ARCHIVE */
+  .back{
+    text-align:center;padding:2rem 3rem 4rem;
+  }
+  .back a{
+    font-size:.74rem;text-transform:uppercase;letter-spacing:.28em;font-weight:500;
+    color:var(--ink);text-decoration:none;
+    border-bottom:1.5px solid var(--ink);padding-bottom:4px;
+    transition:letter-spacing .3s;
+  }
+  .back a:hover{letter-spacing:.38em}
+
+  footer{padding:2rem 3rem;border-top:1px solid var(--line);display:flex;justify-content:space-between;font-size:.72rem;text-transform:uppercase;letter-spacing:.22em;color:var(--muted);font-weight:500}
+  footer a{color:inherit;text-decoration:none}
+
+  .fade{opacity:0;transform:translateY(12px);animation:fade .8s forwards}
+  .fade.d1{animation-delay:.05s}.fade.d2{animation-delay:.15s}.fade.d3{animation-delay:.25s}
+  @keyframes fade{to{opacity:1;transform:translateY(0)}}
+
+  @media(max-width:900px){
+    header{grid-template-columns:1fr;gap:1.25rem;padding:1.75rem 1.5rem 1.25rem}
+    .name{font-size:.95rem}
+    nav ul{gap:1.25rem;flex-wrap:wrap}
+    nav a{font-size:.7rem;letter-spacing:.18em}
+    .page-head{padding:2.5rem 1.5rem 1.5rem}
+    .toc{padding:1.25rem 1.5rem;gap:1rem}
+    .docs{padding:2rem 1.5rem}
+    .doc-head{grid-template-columns:1fr;gap:1rem}
+    .download{justify-self:start}
+    .pdf-frame{height:60vh;min-height:400px}
+    footer{padding:1.5rem;flex-direction:column;gap:.5rem;text-align:center}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="name fade d1"><a href="index.html">Karoline E. Normann</a></div>
+  <nav>
+    <ul>
+      <li class="fade d2"><a href="index.html">Forside</a></li>
+      <li class="fade d2"><a href="om.html">Om meg</a></li>
+      <li class="fade d2"><a href="index.html#kontakt">Kontakt</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="page-head">
+  <!-- BYTT UT: årstall i breadcrumb og overskrift -->
+  <div class="crumbs fade d1"><a href="arbeider.html">Tidligere prosjekter</a> · [ÅR]</div>
+  <div class="year fade d1">[ÅR] · [Kategori, f.eks. Konsept / Studie / Mønster]</div>
+  <h1 class="fade d2">[Prosjekttittel]</h1>
+  <p class="fade d3">[En kort beskrivelse av prosjektet — hva det handlet om, hva som var inspirasjonen, hva du lærte. To-tre setninger.]</p>
+</section>
+
+<!--
+  INNHOLDSFORTEGNELSE
+  Legg til/fjern lenker så de matcher seksjonene under.
+-->
+<div class="toc fade d3">
+  <a href="#dok1">[Dokumenttittel]</a>
+  <a href="#dok2">[Dokumenttittel]</a>
+  <a href="#dok3">[Dokumenttittel]</a>
+</div>
+
+<section class="docs">
+
+  <!--
+    ═══════════════════════════════════════════════════════════
+    DOKUMENT-BLOKK
+    Kopier hele <article> for å legge til flere PDF-er.
+    Slett en blokk hvis prosjektet ikke har den.
+
+    Nummerering (01, 02, 03...) skjer AUTOMATISK — du trenger
+    bare å:
+      1) Oppdatere id="..." så det matcher TOC-lenkene
+      2) Endre tittel og beskrivelse
+      3) Endre filnavn på PDF-en (begge stedene)
+    ═══════════════════════════════════════════════════════════
+  -->
+  <article class="doc" id="dok1">
+    <div class="doc-head">
+      <div class="doc-num"></div>
+      <div class="doc-title">
+        <h2>[Dokumenttittel]</h2>
+        <div class="sub">[Underrtittel / kort beskrivelse]</div>
+      </div>
+      <a href="pdf/[filnavn].pdf" download class="download">Last ned PDF</a>
+    </div>
+    <p class="doc-desc">[Kort beskrivelse av hva dette dokumentet inneholder.]</p>
+    <iframe src="pdf/[filnavn].pdf" class="pdf-frame" title="[Dokumenttittel]"></iframe>
+  </article>
+
+  <article class="doc" id="dok2">
+    <div class="doc-head">
+      <div class="doc-num"></div>
+      <div class="doc-title">
+        <h2>[Dokumenttittel]</h2>
+        <div class="sub">[Underrtittel / kort beskrivelse]</div>
+      </div>
+      <a href="pdf/[filnavn].pdf" download class="download">Last ned PDF</a>
+    </div>
+    <p class="doc-desc">[Kort beskrivelse av hva dette dokumentet inneholder.]</p>
+    <iframe src="pdf/[filnavn].pdf" class="pdf-frame" title="[Dokumenttittel]"></iframe>
+  </article>
+
+  <article class="doc" id="dok3">
+    <div class="doc-head">
+      <div class="doc-num"></div>
+      <div class="doc-title">
+        <h2>[Dokumenttittel]</h2>
+        <div class="sub">[Underrtittel / kort beskrivelse]</div>
+      </div>
+      <a href="pdf/[filnavn].pdf" download class="download">Last ned PDF</a>
+    </div>
+    <p class="doc-desc">[Kort beskrivelse av hva dette dokumentet inneholder.]</p>
+    <iframe src="pdf/[filnavn].pdf" class="pdf-frame" title="[Dokumenttittel]"></iframe>
+  </article>
+
+</section>
+
+<div class="back">
+  <a href="arbeider.html">← Tilbake til alle prosjekter</a>
+</div>
+
+<footer>
+  <div>© 2026 Karoline E. Normann</div>
+  <div>
+    <a href="mailto:[e-post]">E-post</a> &nbsp;·&nbsp;
+    <a href="#" target="_blank">Instagram</a>
+  </div>
+</footer>
+
+</body>
+</html>

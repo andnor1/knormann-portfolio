@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Avgangsoppgave — Karoline E. Normann</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#f4f1ec;--ink:#1a1a1a;--muted:#8a8378;--line:#d8d1c5;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Inter',sans-serif;font-weight:400;
+    background:var(--bg);color:var(--ink);line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  header{
+    display:grid;grid-template-columns:1fr auto;align-items:end;
+    padding:2.5rem 3rem 1.5rem;border-bottom:1px solid var(--ink);
+  }
+  .name{font-size:1.1rem;font-weight:600;text-transform:uppercase;letter-spacing:.18em}
+  .name a{color:inherit;text-decoration:none}
+  nav ul{display:flex;gap:2.5rem;list-style:none}
+  nav a{color:var(--ink);text-decoration:none;font-size:.8rem;font-weight:500;text-transform:uppercase;letter-spacing:.22em;padding-bottom:2px;transition:opacity .25s}
+  nav a:hover{opacity:.55}
+  nav a.active{border-bottom:1.5px solid var(--ink)}
+
+  .page-head{padding:4rem 3rem 2rem;max-width:1400px;margin:0 auto;text-align:center}
+  .crumbs{font-size:.72rem;text-transform:uppercase;letter-spacing:.28em;color:var(--muted);margin-bottom:1.5rem;font-weight:500}
+  .crumbs a{color:var(--muted);text-decoration:none}
+  .crumbs a:hover{color:var(--ink)}
+  .page-head h1{
+    font-size:clamp(2.5rem,5vw,4rem);font-weight:600;line-height:1;
+    letter-spacing:-.015em;text-transform:uppercase;margin-bottom:1.25rem;
+  }
+  .page-head p{max-width:55ch;margin:0 auto;color:#3a3a3a;font-size:1rem}
+
+  .toc{
+    max-width:1400px;margin:2.5rem auto 0;padding:1.25rem 3rem;
+    display:flex;flex-wrap:wrap;justify-content:center;gap:2rem;
+    border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);
+    counter-reset:toc;
+  }
+  .toc a{
+    font-size:.74rem;text-transform:uppercase;letter-spacing:.28em;
+    color:var(--muted);text-decoration:none;font-weight:500;transition:color .3s;
+    counter-increment:toc;
+  }
+  .toc a::before{
+    content:counter(toc, decimal-leading-zero) " ";
+  }
+  .toc a:hover{color:var(--ink)}
+
+  .docs{max-width:1400px;margin:0 auto;padding:3rem;counter-reset:doc}
+
+  .doc{margin-bottom:5rem;counter-increment:doc}
+  .doc-head{
+    display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:2rem;
+    margin-bottom:1.5rem;padding-bottom:1.25rem;border-bottom:1px solid var(--line);
+  }
+  .doc-num{
+    font-size:1.6rem;font-weight:700;color:var(--muted);
+    letter-spacing:-.01em;
+  }
+  .doc-num::before{
+    content:counter(doc, decimal-leading-zero);
+  }
+  .doc-title h2{
+    font-size:clamp(1.5rem,3vw,2.25rem);font-weight:600;line-height:1;
+    text-transform:uppercase;letter-spacing:-.01em;margin-bottom:.35rem;
+  }
+  .doc-title .sub{font-size:.72rem;color:var(--muted);letter-spacing:.22em;text-transform:uppercase;font-weight:500}
+  .download{
+    font-size:.74rem;text-transform:uppercase;letter-spacing:.28em;font-weight:500;
+    color:var(--ink);text-decoration:none;
+    border:1.5px solid var(--ink);padding:.85rem 1.4rem;
+    transition:all .3s;white-space:nowrap;
+  }
+  .download:hover{background:var(--ink);color:var(--bg)}
+
+  .doc-desc{max-width:65ch;color:#3a3a3a;margin-bottom:1.5rem;font-size:.92rem}
+
+  .pdf-frame{
+    width:100%;height:80vh;min-height:600px;
+    border:1px solid var(--line);background:#fff;
+    box-shadow:0 30px 60px -20px rgba(0,0,0,.1);
+  }
+
+  footer{padding:2rem 3rem;border-top:1px solid var(--line);display:flex;justify-content:space-between;font-size:.72rem;text-transform:uppercase;letter-spacing:.22em;color:var(--muted);font-weight:500}
+  footer a{color:inherit;text-decoration:none}
+
+  .fade{opacity:0;transform:translateY(12px);animation:fade .8s forwards}
+  .fade.d1{animation-delay:.05s}.fade.d2{animation-delay:.15s}.fade.d3{animation-delay:.25s}
+  @keyframes fade{to{opacity:1;transform:translateY(0)}}
+
+  @media(max-width:900px){
+    header{grid-template-columns:1fr;gap:1.25rem;padding:1.75rem 1.5rem 1.25rem}
+    .name{font-size:.95rem}
+    nav ul{gap:1.25rem;flex-wrap:wrap}
+    nav a{font-size:.7rem;letter-spacing:.18em}
+    .page-head{padding:2.5rem 1.5rem 1.5rem}
+    .toc{padding:1.25rem 1.5rem;gap:1rem}
+    .docs{padding:2rem 1.5rem}
+    .doc-head{grid-template-columns:1fr;gap:1rem}
+    .download{justify-self:start}
+    .pdf-frame{height:60vh;min-height:400px}
+    footer{padding:1.5rem;flex-direction:column;gap:.5rem;text-align:center}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="name fade d1"><a href="index.html">Karoline E. Normann</a></div>
+  <nav>
+    <ul>
+      <li class="fade d2"><a href="index.html">Forside</a></li>
+      <li class="fade d2"><a href="om.html">Om meg</a></li>
+      <li class="fade d2"><a href="index.html#kontakt">Kontakt</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="page-head">
+  <div class="crumbs fade d1"><a href="arbeider.html">Tidligere prosjekter</a> · 2026</div>
+  <h1 class="fade d2">Avgangsoppgave</h1>
+  <p class="fade d3">[En kort beskrivelse av kolleksjonen — tema, inspirasjon, prosess. To-tre setninger.]</p>
+</section>
+
+<div class="toc fade d3">
+  <a href="#portefolje">Portefølje</a>
+  <a href="#loggbok">Loggbok</a>
+  <a href="#lookbok">Lookbook</a>
+  <a href="#techpack1">Techpack I</a>
+  <a href="#techpack2">Techpack II</a>
+  <a href="#brandbook">Brandbook</a>
+  <a href="#kolleksjonsplan">Kolleksjonsplan</a>
+</div>
+
+<section class="docs">
+
+  <article class="doc" id="portefolje">
+    <div class="doc-head">
+      <div class="doc-num"></div>
+      <div class="doc-title">
+        <h2>Portefølje</h2>
+        <div class="sub">Inneholder kolleksjonsplan</div>
+      </div>
+      <a href="pdf/portefolje.pdf" download class="download">Last ned PDF</a>
+    </div>
+    <p class="doc-desc">Hele porteføljen samlet — fra konsept til ferdig kolleksjon, inkludert kolleksjonsplan og prosessdokumentasjon.</p>
+    <iframe src="pdf/portefolje.pdf" class="pdf-frame" title="Portefølje"></iframe>
+  </article>
+
+  <article class="doc" id="loggbok">
+    <div class="doc-head">
+      <div class="doc-num"></div>
+      <div class="doc-title">
+        <h2>Loggbok</h2>
+        <div class="sub">Prosess & refleksjon</div>
+      </div>
+      <a href="pdf/loggbok.pdf" download class="download">Last ned PDF</a>
+    </div>
+    <p class="doc-desc">Dagbok gjennom utviklingsprosessen — fra første idé til ferdige plagg.</p>
+    <iframe src="pdf/loggbok.pdf" class="pdf-frame" title="Loggbok"></iframe>
+  </article>
+
+  <article class="doc" id="lookbok">
+    <div class="doc-head">
+      <div class="doc-num"></div>
+      <div class="doc-title">
+        <h2>Lookbook</h2>
+        <div class="sub">Visuell presentasjon av kolleksjonen</div>
+      </div>
+      <a href="pdf/lookbok.pdf" download class="download">Last ned PDF</a>
+    </div>
+    <p class="doc-desc">Den visuelle fortellingen om kolleksjonen — stylet og fotografert.</p>
+    <iframe src="pdf/lookbok.pdf" class="pdf-frame" title="Lookbook"></iframe>
+  </article>
+
+  <article class="doc" id="techpack1">
+    <div class="doc-head">
+      <div class="doc-num"></div>
+      <div class="doc-title">
+        <h2>Techpack I</h2>
+        <div class="sub">Tekniske spesifikasjoner</div>
+      </div>
+      <a href="pdf/techpack1.pdf" download class="download">Last ned PDF</a>
+    </div>
+    <p class="doc-desc">Produksjonsklare tekniske spesifikasjoner for [plagg/del 1 av kolleksjonen].</p>
+    <iframe src="pdf/techpack1.pdf" class="pdf-frame" title="Techpack 1"></iframe>
+  </article>
+
+  <article class="doc" id="techpack2">
+    <div class="doc-head">
+      <div class="doc-num"></div>
+      <div class="doc-title">
+        <h2>Techpack II</h2>
+        <div class="sub">Tekniske spesifikasjoner</div>
+      </div>
+      <a href="pdf/techpack2.pdf" download class="download">Last ned PDF</a>
+    </div>
+    <p class="doc-desc">Produksjonsklare tekniske spesifikasjoner for [plagg/del 2 av kolleksjonen].</p>
+    <iframe src="pdf/techpack2.pdf" class="pdf-frame" title="Techpack 2"></iframe>
+  </article>
+
+  <article class="doc" id="brandbook">
+    <div class="doc-head">
+      <div class="doc-num"></div>
+      <div class="doc-title">
+        <h2>Brandbook</h2>
+        <div class="sub">Merkevarens identitet</div>
+      </div>
+      <a href="pdf/brandbook.pdf" download class="download">Last ned PDF</a>
+    </div>
+    <p class="doc-desc">Visuell identitet, tone of voice, fargepalett og typografi for merkevaren.</p>
+    <iframe src="pdf/brandbook.pdf" class="pdf-frame" title="Brandbook"></iframe>
+  </article>
+
+  <article class="doc" id="kolleksjonsplan">
+    <div class="doc-head">
+      <div class="doc-num"></div>
+      <div class="doc-title">
+        <h2>Kolleksjonsplan</h2>
+        <div class="sub">Hentet fra porteføljen</div>
+      </div>
+      <a href="pdf/portefolje.pdf" download class="download">Last ned PDF</a>
+    </div>
+    <p class="doc-desc">Kolleksjonsplanen er en del av porteføljen. Du finner den der.</p>
+    <iframe src="pdf/portefolje.pdf" class="pdf-frame" title="Kolleksjonsplan"></iframe>
+  </article>
+
+</section>
+
+<footer>
+  <div>© 2026 Karoline E. Normann</div>
+  <div>
+    <a href="mailto:[e-post]">E-post</a> &nbsp;·&nbsp;
+    <a href="#" target="_blank">Instagram</a>
+  </div>
+</footer>
+
+</body>
+</html>

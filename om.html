@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Om meg — Karoline E. Normann</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#f4f1ec;--ink:#1a1a1a;--muted:#8a8378;--line:#d8d1c5;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{
+    font-family:'Inter',sans-serif;font-weight:400;
+    background:var(--bg);color:var(--ink);line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  header{
+    display:grid;grid-template-columns:1fr auto;align-items:end;
+    padding:2.5rem 3rem 1.5rem;border-bottom:1px solid var(--ink);
+  }
+  .name{font-size:1.1rem;font-weight:600;text-transform:uppercase;letter-spacing:.18em}
+  .name a{color:inherit;text-decoration:none}
+  nav ul{display:flex;gap:2.5rem;list-style:none}
+  nav a{color:var(--ink);text-decoration:none;font-size:.8rem;font-weight:500;text-transform:uppercase;letter-spacing:.22em;padding-bottom:2px;transition:opacity .25s}
+  nav a:hover{opacity:.55}
+  nav a.active{border-bottom:1.5px solid var(--ink)}
+
+  main{padding:4rem 3rem;max-width:1400px;margin:0 auto}
+
+  .intro{
+    display:grid;
+    grid-template-columns:.85fr 1.15fr;
+    gap:4rem;
+    margin-bottom:5rem;
+  }
+
+  .portrait{
+    aspect-ratio:3/4;
+    background:linear-gradient(135deg,#e8e2d6 0%,#c9bfa9 100%);
+    display:flex;align-items:center;justify-content:center;
+    color:var(--muted);font-size:.7rem;letter-spacing:.3em;
+    text-transform:uppercase;font-weight:500;
+    overflow:hidden;
+  }
+  .portrait img{width:100%;height:100%;object-fit:cover;display:block}
+
+  .intro-text .eyebrow{
+    font-size:.72rem;text-transform:uppercase;letter-spacing:.28em;
+    color:var(--muted);margin-bottom:1.5rem;font-weight:500;
+  }
+  .intro-text h1{
+    font-size:clamp(2rem,4vw,3.25rem);
+    font-weight:600;line-height:1.05;letter-spacing:-.015em;
+    margin-bottom:2rem;text-transform:uppercase;
+  }
+  .intro-text p{
+    font-size:1rem;color:#2a2a2a;
+    margin-bottom:1.25rem;max-width:58ch;
+  }
+  .intro-text p.lead{
+    font-size:1.15rem;font-weight:500;color:var(--ink);
+    line-height:1.5;margin-bottom:1.75rem;
+  }
+
+  /* META BLOCKS */
+  .meta{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:3rem;
+    padding:3rem 0;
+    border-top:1px solid var(--ink);
+    border-bottom:1px solid var(--ink);
+    margin-bottom:4rem;
+  }
+  .meta h3{
+    font-size:.7rem;text-transform:uppercase;letter-spacing:.28em;
+    color:var(--muted);font-weight:500;margin-bottom:1.5rem;
+  }
+  .meta ul{list-style:none}
+  .meta li{
+    font-size:.95rem;font-weight:500;
+    padding:.7rem 0;border-bottom:1px solid var(--line);
+  }
+  .meta li:last-child{border:none}
+  .meta li span{
+    display:block;font-size:.7rem;color:var(--muted);
+    letter-spacing:.18em;text-transform:uppercase;
+    margin-top:.25rem;font-weight:400;
+  }
+
+  .contact{
+    text-align:center;padding:2rem 0 1rem;
+  }
+  .contact h2{
+    font-size:clamp(1.5rem,3vw,2.25rem);font-weight:600;
+    text-transform:uppercase;letter-spacing:-.01em;margin-bottom:2rem;
+  }
+  .contact a{
+    display:inline-block;margin:0 1.5rem;
+    color:var(--ink);text-decoration:none;
+    font-size:.78rem;text-transform:uppercase;letter-spacing:.28em;font-weight:500;
+    border-bottom:1.5px solid var(--ink);padding-bottom:4px;
+    transition:letter-spacing .3s;
+  }
+  .contact a:hover{letter-spacing:.38em}
+
+  footer{
+    padding:2rem 3rem;border-top:1px solid var(--line);
+    display:flex;justify-content:space-between;
+    font-size:.72rem;text-transform:uppercase;letter-spacing:.22em;
+    color:var(--muted);font-weight:500;
+  }
+  footer a{color:inherit;text-decoration:none}
+
+  .fade{opacity:0;transform:translateY(12px);animation:fade .8s forwards}
+  .fade.d1{animation-delay:.05s}.fade.d2{animation-delay:.15s}.fade.d3{animation-delay:.25s}.fade.d4{animation-delay:.35s}
+  @keyframes fade{to{opacity:1;transform:translateY(0)}}
+
+  @media(max-width:900px){
+    header{grid-template-columns:1fr;gap:1.25rem;padding:1.75rem 1.5rem 1.25rem}
+    .name{font-size:.95rem}
+    nav ul{gap:1.25rem;flex-wrap:wrap}
+    nav a{font-size:.7rem;letter-spacing:.18em}
+    main{padding:2.5rem 1.5rem}
+    .intro{grid-template-columns:1fr;gap:2rem}
+    .meta{grid-template-columns:1fr;gap:2rem;padding:2rem 0}
+    .contact a{display:block;margin:1rem 0}
+    footer{padding:1.5rem;flex-direction:column;gap:.5rem;text-align:center}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="name fade d1"><a href="index.html">Karoline E. Normann</a></div>
+  <nav>
+    <ul>
+      <li class="fade d2"><a href="index.html">Forside</a></li>
+      <li class="fade d2"><a href="om.html" class="active">Om meg</a></li>
+      <li class="fade d2"><a href="index.html#kontakt">Kontakt</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+
+  <section class="intro">
+    <div class="portrait fade d1">Portrettbilde</div>
+
+    <div class="intro-text">
+      <div class="eyebrow fade d2">Klesdesigner · Oslo</div>
+      <h1 class="fade d2">Karoline E.<br>Normann</h1>
+      <p class="lead fade d3">[En åpningssetning som beskriver hvem du er som designer — én sterk linje.]</p>
+      <p class="fade d3">[Avsnitt om bakgrunn — hvor du er fra, hva du studerer, hva som har formet deg.]</p>
+      <p class="fade d3">[Avsnitt om designtilnærmingen din — hvilke materialer, silhuetter eller temaer du dras mot, hva avgangskolleksjonen handler om.]</p>
+      <p class="fade d3">[Et tredje avsnitt om hvor du vil videre — drømmer, inspirasjoner, eller hva du leter etter nå.]</p>
+    </div>
+  </section>
+
+  <section class="meta">
+    <div class="fade d2">
+      <h3>Utdanning</h3>
+      <ul>
+        <li>[Skolens navn]<span>2023 — 2026</span></li>
+        <li>[Tidligere studie]<span>2021 — 2023</span></li>
+      </ul>
+    </div>
+    <div class="fade d3">
+      <h3>Ferdigheter</h3>
+      <ul>
+        <li>Mønsterkonstruksjon</li>
+        <li>Drapering & søm</li>
+        <li>Adobe Illustrator & Photoshop</li>
+        <li>Clo3D</li>
+      </ul>
+    </div>
+    <div class="fade d4">
+      <h3>Erfaring</h3>
+      <ul>
+        <li>[Praksissted]<span>Sommer 2025</span></li>
+        <li>[Frilans / prosjekt]<span>2024</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="contact">
+    <h2>La oss snakke sammen</h2>
+    <a href="mailto:[e-post]">E-post</a>
+    <a href="#" target="_blank">Instagram</a>
+    <a href="#" target="_blank">LinkedIn</a>
+  </section>
+
+</main>
+
+<footer>
+  <div>© 2026 Karoline E. Normann</div>
+  <div>
+    <a href="mailto:[e-post]">E-post</a> &nbsp;·&nbsp;
+    <a href="#" target="_blank">Instagram</a>
+  </div>
+</footer>
+
+</body>
+</html>
