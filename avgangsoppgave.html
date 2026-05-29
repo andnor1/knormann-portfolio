@@ -91,6 +91,29 @@
     box-shadow:0 30px 60px -20px rgba(0,0,0,.1);
   }
 
+  /* Mobil-fallback for PDF — iframes funker dårlig på mobil */
+  .pdf-mobile{
+    display:none;
+    width:100%;padding:2.5rem 1.5rem;
+    background:#fff;border:1px solid var(--line);
+    box-shadow:0 20px 40px -20px rgba(0,0,0,.1);
+    text-align:center;
+  }
+  .pdf-mobile .icon{
+    font-size:.7rem;letter-spacing:.32em;text-transform:uppercase;
+    color:var(--muted);font-weight:500;margin-bottom:1rem;
+  }
+  .pdf-mobile p{
+    font-size:.88rem;color:#3a3a3a;margin-bottom:1.5rem;max-width:32ch;margin-inline:auto;
+  }
+  .pdf-mobile a{
+    display:inline-block;
+    font-size:.74rem;text-transform:uppercase;letter-spacing:.28em;font-weight:500;
+    color:var(--bg);background:var(--ink);text-decoration:none;
+    padding:1rem 1.75rem;transition:opacity .3s;
+  }
+  .pdf-mobile a:hover{opacity:.85}
+
   footer{padding:2rem 3rem;border-top:1px solid var(--line);display:flex;justify-content:space-between;font-size:.72rem;text-transform:uppercase;letter-spacing:.22em;color:var(--muted);font-weight:500}
   footer a{color:inherit;text-decoration:none}
 
@@ -108,7 +131,8 @@
     .docs{padding:2rem 1.5rem}
     .doc-head{grid-template-columns:1fr;gap:1rem}
     .download{justify-self:start}
-    .pdf-frame{height:60vh;min-height:400px}
+    .pdf-frame{display:none}
+    .pdf-mobile{display:block}
     footer{padding:1.5rem;flex-direction:column;gap:.5rem;text-align:center}
   }
 </style>
@@ -154,6 +178,11 @@
     </div>
     <p class="doc-desc">Hele porteføljen samlet — fra konsept til ferdig kolleksjon, inkludert kolleksjonsplan og prosessdokumentasjon.</p>
     <iframe src="pdf/portefolje.pdf" class="pdf-frame" title="Portefølje"></iframe>
+    <div class="pdf-mobile">
+      <div class="icon">PDF · Portefølje</div>
+      <p>For best opplevelse på mobil, åpne PDF-en i ny fane.</p>
+      <a href="pdf/portefolje.pdf" target="_blank" rel="noopener">Åpne PDF</a>
+    </div>
   </article>
 
 
@@ -168,6 +197,11 @@
     </div>
     <p class="doc-desc">Den visuelle fortellingen om kolleksjonen — stylet og fotografert.</p>
     <iframe src="pdf/lookbok.pdf" class="pdf-frame" title="Lookbook"></iframe>
+    <div class="pdf-mobile">
+      <div class="icon">PDF · Lookbook</div>
+      <p>For best opplevelse på mobil, åpne PDF-en i ny fane.</p>
+      <a href="pdf/lookbok.pdf" target="_blank" rel="noopener">Åpne PDF</a>
+    </div>
   </article>
 
     <article class="doc" id="kolleksjonsplan">
@@ -181,6 +215,11 @@
     </div>
     <p class="doc-desc">Kolleksjonsplanen er en del av porteføljen. Du finner den der.</p>
     <iframe src="pdf/portefolje.pdf" class="pdf-frame" title="Kolleksjonsplan"></iframe>
+    <div class="pdf-mobile">
+      <div class="icon">PDF · Kolleksjonsplan</div>
+      <p>For best opplevelse på mobil, åpne PDF-en i ny fane.</p>
+      <a href="pdf/portefolje.pdf" target="_blank" rel="noopener">Åpne PDF</a>
+    </div>
   </article>
 
   <article class="doc" id="techpack1">
@@ -194,6 +233,11 @@
     </div>
     <p class="doc-desc">Produksjonsklare tekniske spesifikasjoner for [plagg/del 1 av kolleksjonen].</p>
     <iframe src="pdf/techpack1.pdf" class="pdf-frame" title="Techpack 1"></iframe>
+    <div class="pdf-mobile">
+      <div class="icon">PDF · Techpack 1</div>
+      <p>For best opplevelse på mobil, åpne PDF-en i ny fane.</p>
+      <a href="pdf/techpack1.pdf" target="_blank" rel="noopener">Åpne PDF</a>
+    </div>
   </article>
 
   <article class="doc" id="techpack2">
@@ -207,6 +251,11 @@
     </div>
     <p class="doc-desc">Produksjonsklare tekniske spesifikasjoner for [plagg/del 2 av kolleksjonen].</p>
     <iframe src="pdf/techpack2.pdf" class="pdf-frame" title="Techpack 2"></iframe>
+    <div class="pdf-mobile">
+      <div class="icon">PDF · Techpack 2</div>
+      <p>For best opplevelse på mobil, åpne PDF-en i ny fane.</p>
+      <a href="pdf/techpack2.pdf" target="_blank" rel="noopener">Åpne PDF</a>
+    </div>
   </article>
 
   <article class="doc" id="brandbook">
@@ -220,6 +269,11 @@
     </div>
     <p class="doc-desc">Visuell identitet, tone of voice, fargepalett og typografi for merkevaren.</p>
     <iframe src="pdf/brandbook.pdf" class="pdf-frame" title="Brandbook"></iframe>
+    <div class="pdf-mobile">
+      <div class="icon">PDF · Brandbook</div>
+      <p>For best opplevelse på mobil, åpne PDF-en i ny fane.</p>
+      <a href="pdf/brandbook.pdf" target="_blank" rel="noopener">Åpne PDF</a>
+    </div>
   </article>
 
 </section>

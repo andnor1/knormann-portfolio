@@ -108,6 +108,29 @@
     box-shadow:0 30px 60px -20px rgba(0,0,0,.1);
   }
 
+  /* Mobil-fallback for PDF */
+  .pdf-mobile{
+    display:none;
+    width:100%;padding:2.5rem 1.5rem;
+    background:#fff;border:1px solid var(--line);
+    box-shadow:0 20px 40px -20px rgba(0,0,0,.1);
+    text-align:center;
+  }
+  .pdf-mobile .icon{
+    font-size:.7rem;letter-spacing:.32em;text-transform:uppercase;
+    color:var(--muted);font-weight:500;margin-bottom:1rem;
+  }
+  .pdf-mobile p{
+    font-size:.88rem;color:#3a3a3a;margin-bottom:1.5rem;max-width:32ch;margin-inline:auto;
+  }
+  .pdf-mobile a{
+    display:inline-block;
+    font-size:.74rem;text-transform:uppercase;letter-spacing:.28em;font-weight:500;
+    color:var(--bg);background:var(--ink);text-decoration:none;
+    padding:1rem 1.75rem;transition:opacity .3s;
+  }
+  .pdf-mobile a:hover{opacity:.85}
+
   /* BACK TO ARCHIVE */
   .back{
     text-align:center;padding:2rem 3rem 4rem;
@@ -137,7 +160,8 @@
     .docs{padding:2rem 1.5rem}
     .doc-head{grid-template-columns:1fr;gap:1rem}
     .download{justify-self:start}
-    .pdf-frame{height:60vh;min-height:400px}
+    .pdf-frame{display:none}
+    .pdf-mobile{display:block}
     footer{padding:1.5rem;flex-direction:column;gap:.5rem;text-align:center}
   }
 </style>
@@ -199,6 +223,11 @@
     </div>
     <p class="doc-desc">[Kort beskrivelse av hva dette dokumentet inneholder.]</p>
     <iframe src="pdf/[filnavn].pdf" class="pdf-frame" title="[Dokumenttittel]"></iframe>
+    <div class="pdf-mobile">
+      <div class="icon">PDF · [Dokumenttittel]</div>
+      <p>For best opplevelse på mobil, åpne PDF-en i ny fane.</p>
+      <a href="pdf/[filnavn].pdf" target="_blank" rel="noopener">Åpne PDF</a>
+    </div>
   </article>
 
   <article class="doc" id="dok2">
@@ -212,6 +241,11 @@
     </div>
     <p class="doc-desc">[Kort beskrivelse av hva dette dokumentet inneholder.]</p>
     <iframe src="pdf/[filnavn].pdf" class="pdf-frame" title="[Dokumenttittel]"></iframe>
+    <div class="pdf-mobile">
+      <div class="icon">PDF · [Dokumenttittel]</div>
+      <p>For best opplevelse på mobil, åpne PDF-en i ny fane.</p>
+      <a href="pdf/[filnavn].pdf" target="_blank" rel="noopener">Åpne PDF</a>
+    </div>
   </article>
 
   <article class="doc" id="dok3">
@@ -225,6 +259,11 @@
     </div>
     <p class="doc-desc">[Kort beskrivelse av hva dette dokumentet inneholder.]</p>
     <iframe src="pdf/[filnavn].pdf" class="pdf-frame" title="[Dokumenttittel]"></iframe>
+    <div class="pdf-mobile">
+      <div class="icon">PDF · [Dokumenttittel]</div>
+      <p>For best opplevelse på mobil, åpne PDF-en i ny fane.</p>
+      <a href="pdf/[filnavn].pdf" target="_blank" rel="noopener">Åpne PDF</a>
+    </div>
   </article>
 
 </section>
